@@ -16,16 +16,18 @@ class NewsDetScreen extends BaseView<NewsDetController> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: Center(
-        child: InAppWebView(
-          initialUrlRequest: URLRequest(
-            url: Uri.parse(controller.newsArticle.url!),
+      body: SafeArea(
+        child: Center(
+          child: InAppWebView(
+            initialUrlRequest: URLRequest(
+              url: Uri.parse(controller.newsArticle.url!),
+            ),
+            onWebViewCreated: (InAppWebViewController controller){
+              webview=controller;
+            },
           ),
-          onWebViewCreated: (InAppWebViewController controller){
-            webview=controller;
-          },
+          
         ),
-
       ),
     );
   }

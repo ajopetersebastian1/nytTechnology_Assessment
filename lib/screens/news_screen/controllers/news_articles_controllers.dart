@@ -5,22 +5,20 @@ import 'package:nytimes/screens/news_screen/models/articles.dart';
 import 'package:nytimes/screens/news_screen/services/news_article_api.dart';
 
 class NewsArticlesController extends BaseController {
-  var news = <Result>[].obs;
   var newsArticleResponse = Articles().obs;
 
   @override
   void onReady() {
-    _callnewsArticles();
+    _callAriclesOneWeekAgo();
     super.onReady();
   }
-
-  void _callnewsArticles() async {
-    var news = await NewsArticle().getNews(30);
+// Api call for most poppular News articles  week ago
+  void _callAriclesOneWeekAgo() async {
+    var news = await NewsArticle().getNews(7);
     if (news != null) {
       newsArticleResponse(news);
     }
 
-    notifyChildrens();
   }
   
 }

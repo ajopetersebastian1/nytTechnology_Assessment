@@ -2,7 +2,6 @@
 import 'package:get/get.dart';
 import 'package:nytimes/base/base_controller.dart';
 import 'package:nytimes/screens/news_screen/models/articles.dart';
-import 'package:nytimes/screens/news_screen/services/news_article_api.dart';
 
 class NewsDetController extends BaseController {
  late Result newsArticle;
